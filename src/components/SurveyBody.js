@@ -383,14 +383,7 @@ const SurveyBody = () => {
       </div>
       <div
         style={{
-          display:
-            q11 === "yes" ||
-            q11 === "no" ||
-            q12 === "good" ||
-            q12 === "average" ||
-            q12 === "notGood"
-              ? "block"
-              : "none",
+          display: q10 === "1stick" || q10 === "2stick" ? "block" : "none",
         }}
         className="mt-2"
       >
@@ -436,7 +429,9 @@ const SurveyBody = () => {
             q14 === "137" ||
             q14 === "138" ||
             q14 === "139" ||
-            q14 === "140"
+            q14 === "140" ||
+            q11 === "yes" ||
+            q11 === "no"
               ? "block"
               : "none",
         }}
