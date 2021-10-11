@@ -16,7 +16,7 @@ const UploadLead = () => {
   };
 
   const handleUploadLead = () => {
-    fetch("https://lit-everglades-43507.herokuapp.com/uploadLead", {
+    fetch("http://192.168.10.11:5050/uploadLead", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(lead),

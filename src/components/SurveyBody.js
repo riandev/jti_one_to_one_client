@@ -32,7 +32,7 @@ const SurveyBody = () => {
     setSearchNumber(e.target.value);
   };
   const handleSearch = () => {
-    fetch(`https://lit-everglades-43507.herokuapp.com/dMatched/${searchNumber}`)
+    fetch(`http://192.168.10.11:5050/dMatched/${searchNumber}`)
       .then((res) => res.json())
       .then((data) => setConsumer(data));
     setNotFound(true);
@@ -117,14 +117,11 @@ const SurveyBody = () => {
       callDate: new Date().toLocaleDateString(),
       callTime: new Date().toLocaleTimeString(),
     };
-    fetch(
-      `https://lit-everglades-43507.herokuapp.com/answers/${consumer?._id}`,
-      {
-        method: "PATCH",
-        headers: { "Content-type": "application/json" },
-        body: JSON.stringify(answer),
-      }
-    )
+    fetch(`http://192.168.10.11:5050/answers/${consumer?._id}`, {
+      method: "PATCH",
+      headers: { "Content-type": "application/json" },
+      body: JSON.stringify(answer),
+    })
       .then((res) => res.json())
       .then((data) => console.log(data));
     console.log(answer);

@@ -11,26 +11,22 @@ const BrReport = () => {
   const [areaDate, setAreaDate] = useState("");
   const [regionDate, setRegionDate] = useState("");
   const handleBrReport = () => {
-    fetch(`https://lit-everglades-43507.herokuapp.com/baReport/${brDate}`)
+    fetch(`http://192.168.10.11:5050/baReport/${brDate}`)
       .then((res) => res.json())
       .then((data) => setStatus(data));
   };
   const handleTerritoryReport = () => {
-    fetch(
-      `https://lit-everglades-43507.herokuapp.com/territoryReport/${territoryDate}`
-    )
+    fetch(`http://192.168.10.11:5050/territoryReport/${territoryDate}`)
       .then((res) => res.json())
       .then((data) => setTerritoryStatus(data));
   };
   const handleAreaReport = () => {
-    fetch(`https://lit-everglades-43507.herokuapp.com/areaReport/${areaDate}`)
+    fetch(`http://192.168.10.11:5050/areaReport/${areaDate}`)
       .then((res) => res.json())
       .then((data) => setAreaStatus(data));
   };
   const handleRegionReport = () => {
-    fetch(
-      `https://lit-everglades-43507.herokuapp.com/regionReport/${regionDate}`
-    )
+    fetch(`http://192.168.10.11:5050/regionReport/${regionDate}`)
       .then((res) => res.json())
       .then((data) => setRegionStatus(data));
   };

@@ -22,24 +22,16 @@ const DownloadReport = () => {
     );
   };
   const handleReport = () => {
-    fetch(
-      `https://lit-everglades-43507.herokuapp.com/getBRReport/${reportDate}`
-    )
+    fetch(`http://192.168.10.11:5050/getBRReport/${reportDate}`)
       .then((res) => res.json())
       .then((data) => setBRReport(data));
-    fetch(
-      `https://lit-everglades-43507.herokuapp.com/getTerritoryReport/${reportDate}`
-    )
+    fetch(`http://192.168.10.11:5050/getTerritoryReport/${reportDate}`)
       .then((res) => res.json())
       .then((data) => setTerritoyReport(data));
-    fetch(
-      `https://lit-everglades-43507.herokuapp.com/getAreaReport/${reportDate}`
-    )
+    fetch(`http://192.168.10.11:5050/getAreaReport/${reportDate}`)
       .then((res) => res.json())
       .then((data) => setAreaReport(data));
-    fetch(
-      `https://lit-everglades-43507.herokuapp.com/getRegionReport/${reportDate}`
-    )
+    fetch(`http://192.168.10.11:5050/getRegionReport/${reportDate}`)
       .then((res) => res.json())
       .then((data) => setRegionReport(data));
   };
