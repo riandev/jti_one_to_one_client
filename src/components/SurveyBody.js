@@ -405,7 +405,19 @@ const SurveyBody = () => {
         className="mt-2"
       >
         <h6>১৪. স্যার আপনি প্যাকেট কত টাকা দিয়ে ক্রয় করেছিলেন?</h6>
-        <Form.Group onChange={q14value} as={Row}>
+        <Form.Group
+          className="mb-3"
+          onChange={q14value}
+          as={Row}
+          controlId="exampleForm.ControlInput1"
+        >
+          <Form.Control
+            className="w-50 ml-3"
+            type="number"
+            placeholder="Input Price"
+          />
+        </Form.Group>
+        {/* <Form.Group onChange={q14value} as={Row}>
           <Form.Control as="select" className="w-50 ml-3">
             <option>...</option>
             <option value="135">১৩৫ টাকা</option>
@@ -415,7 +427,7 @@ const SurveyBody = () => {
             <option value="139">১৩৯ টাকা</option>
             <option value="140">১৪০ টাকা</option>
           </Form.Control>
-        </Form.Group>
+        </Form.Group> */}
       </div>
       <div
         style={{
@@ -424,12 +436,7 @@ const SurveyBody = () => {
             q13 === "sevenTaka" ||
             q13 === "eightTaka" ||
             q13 === "tenTaka" ||
-            q14 === "135" ||
-            q14 === "136" ||
-            q14 === "137" ||
-            q14 === "138" ||
-            q14 === "139" ||
-            q14 === "140" ||
+            q14 !== null ||
             q11 === "yes" ||
             q11 === "no"
               ? "block"
