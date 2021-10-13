@@ -18,7 +18,6 @@ function Main() {
               <Link to="/dashboard/crm">Survey</Link>
             </li>
           </ul>
-
           {routes.map((route, index) => (
             <Route
               key={index}

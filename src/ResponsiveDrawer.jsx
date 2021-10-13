@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import PropTypes from "prop-types";
 import AppBar from "@material-ui/core/AppBar";
 import CssBaseline from "@material-ui/core/CssBaseline";
@@ -23,9 +23,8 @@ import Menu from "@material-ui/core/Menu";
 import MenuItem from "@material-ui/core/MenuItem";
 import Fade from "@material-ui/core/Fade";
 import user from "./images/user.png";
-
+import { useStopwatch, useTimer } from "react-timer-hook";
 import routes from "./Router/routes";
-
 import {
   BrowserRouter as Router,
   Route,
@@ -33,6 +32,7 @@ import {
   Redirect,
 } from "react-router-dom";
 import { Avatar } from "@material-ui/core";
+import { userContext } from "./App";
 
 const drawerWidth = 240;
 
@@ -67,6 +67,34 @@ const useStyles = makeStyles((theme) => ({
     padding: theme.spacing(3),
   },
 }));
+function MyStopwatch() {
+  const [loginInfo, setLoginInfo] = useContext(userContext);
+  const stopwatchOffset = new Date();
+  stopwatchOffset.setSeconds(stopwatchOffset.getSeconds());
+  const { seconds, minutes, hours, isRunning, start, pause, reset } =
+    useStopwatch({ autoStart: true, offsetTimestamp: stopwatchOffset });
+  const hourTime = hours < 10 ? `0${hours}` : `${hours}`;
+  const secondTime = seconds < 10 ? `0${seconds}` : `${seconds}`;
+  const minuteTime = minutes < 10 ? `0${minutes}` : `${minutes}`;
+  return (
+    <div style={{ textAlign: "center" }}>
+      <div style={{ fontSize: "50px" }}>
+        <span>{hourTime}</span>:<span>{minuteTime}</span>:
+        <span>{secondTime}</span>
+      </div>
+      <p style={{ color: "green" }}>{isRunning ? "Running" : "Not running"}</p>
+      <button className="btn btn-primary mr-2" onClick={start}>
+        Start
+      </button>
+      <button className="btn btn-danger" onClick={pause}>
+        Pause
+      </button>
+      {/* <button className="btn btn-secondary" onClick={reset}>
+        Reset
+      </button> */}
+    </div>
+  );
+}
 
 const ResponsiveDrawer = (props) => {
   const { container } = props;
@@ -119,6 +147,9 @@ const ResponsiveDrawer = (props) => {
         ))}
       </List>
       <Divider />
+      <div>
+        <MyStopwatch />
+      </div>
     </div>
   );
 

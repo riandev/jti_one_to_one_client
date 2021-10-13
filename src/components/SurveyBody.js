@@ -27,6 +27,7 @@ const SurveyBody = () => {
   const [q16, setQ16] = useState(null);
   const [q17, setQ17] = useState(null);
   const [q18, setQ18] = useState(null);
+  const [remakrsQ10, setRemakrsQ10] = useState(null);
 
   const handleText = (e) => {
     setSearchNumber(e.target.value);
@@ -92,6 +93,9 @@ const SurveyBody = () => {
   const q18value = (e) => {
     setQ18(e.target.value);
   };
+  const remarksq10 = (e) => {
+    setRemakrsQ10(e.target.value);
+  };
   const agent = sessionStorage.getItem("agent");
   const handleSubmit = (e) => {
     const answer = {
@@ -113,6 +117,7 @@ const SurveyBody = () => {
       ans16: q16,
       ans17: q17,
       ans18: q18,
+      remarksQ10: remakrsQ10,
       agentID: agent,
       callDate: new Date().toLocaleDateString(),
       callTime: new Date().toLocaleTimeString(),
@@ -345,7 +350,7 @@ const SurveyBody = () => {
             <option value="2stick">২ শলাকা</option>
             <option value="5stick">5 শলাকা</option>
             <option value="20stick2packet">২০ শলাকার ২টি প্যাকেট</option>
-            <option value="0stick">০ শলাকা</option>
+            <option value="others">অন্যান্য</option>
           </Form.Control>
         </Form.Group>
       </div>
@@ -406,7 +411,7 @@ const SurveyBody = () => {
         className="mt-2"
       >
         <h6>১৪. স্যার আপনি প্যাকেট কত টাকা দিয়ে ক্রয় করেছিলেন?</h6>
-        <Form.Group
+        {/* <Form.Group
           className="mb-3"
           onChange={q14value}
           as={Row}
@@ -417,18 +422,15 @@ const SurveyBody = () => {
             type="number"
             placeholder="Input Price"
           />
-        </Form.Group>
-        {/* <Form.Group onChange={q14value} as={Row}>
+        </Form.Group> */}
+        <Form.Group onChange={q14value} as={Row}>
           <Form.Control as="select" className="w-50 ml-3">
             <option>...</option>
-            <option value="135">১৩৫ টাকা</option>
-            <option value="136">১৩৬ টাকা</option>
-            <option value="137">১৩৭ টাকা</option>
-            <option value="138">১৩৮ টাকা</option>
-            <option value="139">১৩৯ টাকা</option>
-            <option value="140">১৪০ টাকা</option>
+            <option value="below280">২৮০ এর নিচে</option>
+            <option value="280">২৮০</option>
+            <option value="above280">২৮০ এর উপরে</option>
           </Form.Control>
-        </Form.Group> */}
+        </Form.Group>
       </div>
       <div
         style={{
@@ -437,8 +439,9 @@ const SurveyBody = () => {
             q13 === "sevenTaka" ||
             q13 === "eightTaka" ||
             q13 === "tenTaka" ||
-            q10 === "0stick" ||
-            q14 !== null ||
+            q14 === "below280" ||
+            q14 === "280" ||
+            q14 === "above280" ||
             q11 === "yes" ||
             q11 === "no"
               ? "block"
@@ -531,6 +534,25 @@ const SurveyBody = () => {
           </Form.Control>
         </Form.Group>
       </div>
+      <div
+        style={{
+          display: q10 === "others" ? "block" : "none",
+        }}
+        className="mt-2"
+      >
+        <Form.Group
+          className="mb-3"
+          onChange={remarksq10}
+          as={Row}
+          controlId="exampleForm.ControlInput1"
+        >
+          <Form.Control
+            className="w-50 ml-3"
+            type="text"
+            placeholder="Type Remarks"
+          />
+        </Form.Group>
+      </div>
       {/* Final Question */}
       <div
         style={{
@@ -542,6 +564,7 @@ const SurveyBody = () => {
             q4 === "no" ||
             q6 === "no" ||
             q9 === "no" ||
+            q10 === "others" ||
             q17 === "taste(berryCapsule)" ||
             q17 === "packOrStickDesign" ||
             q17 === "availability" ||

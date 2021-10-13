@@ -73,6 +73,7 @@ const Reports = () => {
     { label: "q8", key: "answer8" },
     { label: "q9", key: "answer9" },
     { label: "q10", key: "answer10" },
+    { label: "remarksQ10", key: "remarksQ10" },
     { label: "q11", key: "answer11" },
     { label: "q12", key: "answer12" },
     { label: "q13", key: "answer13" },
@@ -117,7 +118,7 @@ const Reports = () => {
                     <CSVLink
                       headers={headers}
                       title="Export data to CSV"
-                      filename={`JTI_Teaser_${date?.date}.csv`}
+                      filename={`Navy_One_To_One_${date?.date}.csv`}
                       data={downloaded}
                     >
                       `Download_${date?.date}`
@@ -137,7 +138,7 @@ const Reports = () => {
           <CSVLink
             headers={headers}
             title="Export data to CSV"
-            filename={"JTI_Teaser.csv"}
+            filename={"Navy_One_To_One.csv"}
             data={report}
           >
             Download
