@@ -429,6 +429,7 @@ const SurveyBody = () => {
             <option value="below280">২৮০ এর নিচে</option>
             <option value="280">২৮০</option>
             <option value="above280">২৮০ এর উপরে</option>
+            <option value="canNotRemember">মনে নেই</option>
           </Form.Control>
         </Form.Group>
       </div>
@@ -442,6 +443,7 @@ const SurveyBody = () => {
             q14 === "below280" ||
             q14 === "280" ||
             q14 === "above280" ||
+            q14 === "canNotRemember" ||
             q11 === "yes" ||
             q11 === "no"
               ? "block"
