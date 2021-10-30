@@ -214,7 +214,7 @@ const SurveyBody = () => {
             <option value="-18">১৮ এর নিচে</option>
             <option value="18-23">১৮-২৩</option>
             <option value="24-29">২৪-২৯</option>
-            <option value="30-25">৩০-৩৫</option>
+            <option value="30-35">৩০-৩৫</option>
             <option value="35+">৩৫+</option>
           </Form.Control>
         </Form.Group>
@@ -222,7 +222,7 @@ const SurveyBody = () => {
       <div
         style={{
           display:
-            q3 === "18-23" || q3 === "24-29" || q3 === "30-25"
+            q3 === "18-23" || q3 === "24-29" || q3 === "30-35" || q3 === "35+"
               ? "block"
               : "none",
         }}
@@ -562,7 +562,6 @@ const SurveyBody = () => {
             q2 === "no" ||
             q2 === "busy" ||
             q3 === "-18" ||
-            q3 === "35+" ||
             q4 === "no" ||
             q6 === "no" ||
             q9 === "no" ||

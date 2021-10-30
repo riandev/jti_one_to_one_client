@@ -78,7 +78,7 @@ const BrReport = () => {
           type="date"
           required
         />
-        <button onClick={handleBrReport} className="btn btn-danger">
+        <button onClick={handleBrReport} className="btn btn-danger mt-2">
           Generate BR Wise Report
         </button>
         <div
@@ -104,7 +104,7 @@ const BrReport = () => {
           type="date"
           required
         />
-        <button onClick={handleTerritoryReport} className="btn btn-danger">
+        <button onClick={handleTerritoryReport} className="btn btn-danger mt-2">
           Generate Territory Wise Report
         </button>
         <div
@@ -130,7 +130,7 @@ const BrReport = () => {
           type="date"
           required
         />
-        <button onClick={handleAreaReport} className="btn btn-danger">
+        <button onClick={handleAreaReport} className="btn btn-danger mt-2">
           Generate Area Wise Report
         </button>
         <div
@@ -156,7 +156,7 @@ const BrReport = () => {
           type="date"
           required
         />
-        <button onClick={handleRegionReport} className="btn btn-danger">
+        <button onClick={handleRegionReport} className="btn btn-danger mt-2">
           Generate Region Wise Report
         </button>
         <div

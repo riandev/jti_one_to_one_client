@@ -12,6 +12,7 @@ import AdminDashboard from "./components/Admin/AdminDashboard/AdminDashboard";
 import PrivateRouteAdmin from "./components/Admin/PrivateRouteAdmin/PrivateRouteAdmin";
 import AdminLogin from "./components/Admin/AdminLogin/AdminLogin";
 import AdminSignUp from "./components/Admin/AdminSignUp/AdminSignUp";
+import DailyBrReport from "./components/Admin/DailyBrReport/DailyBrReport";
 
 export const userContext = createContext();
 export const adminContext = createContext();
@@ -57,6 +58,9 @@ function App() {
                 </Route>
                 <Route exact path="/admin/downloadReport">
                   <AdminDashboard></AdminDashboard>
+                </Route>
+                <Route exact path="/view/dailyBrReport">
+                  <DailyBrReport></DailyBrReport>
                 </Route>
                 <Route exact path="/login">
                   <Login></Login>
