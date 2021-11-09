@@ -15,7 +15,7 @@ const DailyBrReport = () => {
     );
   };
   const handleReport = () => {
-    fetch(`http://192.168.10.11:5050/getBRReport/${reportDate}`)
+    fetch(`http://192.168.10.12:5050/getBRReport/${reportDate}`)
       .then((res) => res.json())
       .then((data) => setBRReport(data));
   };
